@@ -26,10 +26,10 @@ description: >- # used by seo meta and the atom feed
 url: "https://sky-warp.github.io"
 
 github:
-  username: guiltxxx # change to your GitHub username
+  username: sky-warp # change to your GitHub username
 
 twitter:
-  username: sky-warp # change to your Twitter username
+  username: guiltxxx # change to your Twitter username
 
 social:
   # Change to your full name.
