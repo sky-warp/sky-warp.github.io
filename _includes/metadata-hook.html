@@ -1,0 +1,43 @@
+{% comment %}
+  Add project-specific metadata and assets without overriding Chirpy's layouts.
+{% endcomment %}
+
+{% if page.layout == 'home' %}
+  <style>
+    #post-language-toggle {
+      min-width: 3rem;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 991.98px) {
+      #topbar-title {
+        width: calc(100% - 8.5rem);
+      }
+
+      #post-language-toggle {
+        padding-right: 0.25rem;
+        padding-left: 0.25rem;
+      }
+    }
+  </style>
+  <script defer src="{{ '/assets/js/post-language-switch.js' | relative_url }}"></script>
+{% endif %}
+
+{% if page.translation_key %}
+  {% assign original_post = site.posts | where: 'translation_key', page.translation_key | first %}
+  {% assign paired_translations = site.translations | where: 'translation_key', page.translation_key %}
+
+  {% if original_post and paired_translations.size > 0 %}
+    <link
+      rel="alternate"
+      hreflang="{{ original_post.lang | default: 'ru-RU' }}"
+      href="{{ original_post.url | absolute_url }}"
+    >
+
+    {% for translation in paired_translations %}
+      <link rel="alternate" hreflang="{{ translation.lang }}" href="{{ translation.url | absolute_url }}">
+    {% endfor %}
+
+    <link rel="alternate" hreflang="x-default" href="{{ original_post.url | absolute_url }}">
+  {% endif %}
+{% endif %}

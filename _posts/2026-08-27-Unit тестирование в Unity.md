@@ -1,5 +1,7 @@
 ---
 title: Unit-тесты. Тестирование в Unity
+lang: ru-RU
+translation_key: unity-unit-testing
 ---
 
 # Почему это важно
