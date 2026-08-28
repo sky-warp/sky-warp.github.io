@@ -670,6 +670,44 @@ AssertHorizontalVelocity(-_config.DashSpeed);
 
 ![alt text](../assets/UnitTests/20260818374911.png)
 
+В конце, по аналогии с `[SetUp]` атрибутом и его аналогом в UTF, мы можем вызвать метод финализации (очистки ресурсов) через атрибут `[TearDown]` или его аналог в UTF `[UnityTearDown]`. Такой метод будет вызываться после выполнения всех тестов.
+
+```c#
+[UnityTearDown]
+        public IEnumerator UnityTearDown()
+        {
+            if (_config != null)
+            {
+                UnityEngine.Object.Destroy(_config);
+                _config = null;
+            }
+
+            if (_player != null)
+            {
+                UnityEngine.Object.Destroy(_player);
+                _player = null;
+            }
+
+            if (_ground != null)
+            {
+                UnityEngine.Object.Destroy(_ground);
+                _ground = null;
+            }
+
+            if (_ceiling != null)
+            {
+                UnityEngine.Object.Destroy(_ceiling);
+                _ceiling = null;
+            }
+
+            yield return null;
+        }
+```
+
+Здесь `[UnityTearDown]` можно спокойно поменять на `[TearDown]`,  но можно оставить так для наглядности.
+
+```
+
 # Заключение
 
 Надеюсь, мне удалось показать вам процесс тестирования с разных сторон. Несмотря на то что это действительно полезный инструмент, способный сэкономить вам кучу времени, он также требует ресурсов на поддержку и отладку. Не думайте о нём как о чём-то обязательном в каждом новом проекте, если только вы не планируете разработку по методологии TDD.
