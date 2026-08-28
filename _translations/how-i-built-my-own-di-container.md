@@ -1,5 +1,5 @@
 ---
-title: How I Built My Own DI Container for a Take-Home Assignment
+title: How I Built My Own DI Container for a TS
 date: 2025-12-21
 lang: en
 translation_key: own-di-implementation
