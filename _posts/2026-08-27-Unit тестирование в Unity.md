@@ -134,6 +134,7 @@ _Window ▸ General ▸ Test Runner_.
 - тест выделяется определённым синтаксисом: в случае с Unity и C# это атрибуты.
 
 Теперь, когда мы разобрались с базой, осталось понять, как же писать тесты самостоятельно.
+
 # Пишем свой первый тест
 
 Как мы уже поняли, тест — это метод внутри класса с особым атрибутом. Test Runner просто обходит все классы в папке с asmdef-файлом и принудительно выполняет их методы.
@@ -674,43 +675,40 @@ AssertHorizontalVelocity(-_config.DashSpeed);
 
 ```c#
 [UnityTearDown]
-        public IEnumerator UnityTearDown()
-        {
-            if (_config != null)
-            {
-                UnityEngine.Object.Destroy(_config);
-                _config = null;
-            }
+public IEnumerator UnityTearDown()
+{
+  if (_config != null)
+  {
+      UnityEngine.Object.Destroy(_config);
+      _config = null;
+  }
 
-            if (_player != null)
-            {
-                UnityEngine.Object.Destroy(_player);
-                _player = null;
-            }
+  if (_player != null)
+  {
+      UnityEngine.Object.Destroy(_player);
+      _player = null;
+  }
 
-            if (_ground != null)
-            {
-                UnityEngine.Object.Destroy(_ground);
-                _ground = null;
-            }
+  if (_ground != null)
+  {
+      UnityEngine.Object.Destroy(_ground);
+      _ground = null;
+  }
 
-            if (_ceiling != null)
-            {
-                UnityEngine.Object.Destroy(_ceiling);
-                _ceiling = null;
-            }
+  if (_ceiling != null)
+  {
+      UnityEngine.Object.Destroy(_ceiling);
+      _ceiling = null;
+  }
 
-            yield return null;
-        }
+  yield return null;
+}
 ```
 
 Здесь `[UnityTearDown]` можно спокойно поменять на `[TearDown]`,  но можно оставить так для наглядности.
-
-```
 
 # Заключение
 
 Надеюсь, мне удалось показать вам процесс тестирования с разных сторон. Несмотря на то что это действительно полезный инструмент, способный сэкономить вам кучу времени, он также требует ресурсов на поддержку и отладку. Не думайте о нём как о чём-то обязательном в каждом новом проекте, если только вы не планируете разработку по методологии TDD.
 
 В этом материале я просто хотел показать основы работы при написании юнит-тестов и закрепить — в первую очередь для себя — пройденный материал. Если вы планируете изучать эту тему глубже, то лучшее, что я могу вам посоветовать, — это документация Unity: https://docs.unity3d.com/Packages/com.unity.test-framework@2.0/manual/index.html (не забудьте выбрать актуальную версию) и документация NUnit: https://docs.nunit.org/.
-
