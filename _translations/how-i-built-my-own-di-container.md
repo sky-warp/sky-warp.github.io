@@ -14,7 +14,7 @@ After looking through a few public implementations and trying different ideas, I
 
 ### Disclaimer
 
-This is not a tutorial, and I am not claiming that this is the one true way to build DI. I am deliberately not demonstrating perfect SOLID, GRASP, or other patterns here—apart from DI itself—because I want to keep both the implementation and the story readable. The solution can absolutely be extended and refactored, but in its current form it handles the jobs I built it for.
+This is not a tutorial, and I am not claiming that this is the one true way to build DI. I am deliberately not demonstrating perfect SOLID, GRASP, or other principles here—apart from DI itself—because I want to keep both the implementation and the story readable. The solution can absolutely be extended and refactored, but in its current form it handles the jobs I built it for.
 
 It also has weaknesses that may be deal-breakers for some people, so it is only fair to state them up front.
 
